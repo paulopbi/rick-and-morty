@@ -6,6 +6,17 @@
   font-family: sans-serif;
 }
 
+/* variables */
+
+:root {
+  --backgound-color: #fcfcfc;
+  --pure-white: #fff;
+  --accent: #00b0c8;
+  --first-card-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  --secound-card-shadow: 0 3px 4px rgba(0, 0, 0, 0.12);
+  --third-card-shadow: 0 3px 4px rgba(0, 0, 0, 0.12);
+}
+
 /* general styles */
 
 img {
