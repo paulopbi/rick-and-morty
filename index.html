@@ -62,6 +62,52 @@
         </ul>
       </nav>
     </header>
+
+    <section class="container">
+      <div class="filters-section">
+        <div>
+          <img src="src/assets/alternative-logo.png" alt="Logo" />
+        </div>
+        <div class="filters-items">
+          <!-- input -->
+          <input
+            type="text"
+            id="name"
+            placeholder="Buscar pelo Nome..."
+            class="filter"
+          />
+          <!-- select species -->
+          <select name="species" id="species" class="filter">
+            <option value="">Espécie</option>
+            <option value="animal">Animal</option>
+            <option value="alien">Alien</option>
+            <option value="disease">Doença</option>
+            <option value="unknown">Desconhecido</option>
+            <option value="human">Humano</option>
+            <option value="humanoid">Humanoide</option>
+            <option value="mythological">Mitologico</option>
+            <option value="poopybutthole">Poopybutthole</option>
+            <option value="robot">Robo</option>
+          </select>
+          <!-- select gender -->
+          <select name="gender" id="gender" class="filter">
+            <option value="">Gênero</option>
+            <option value="female">Feminino</option>
+            <option value="male">Masculino</option>
+            <option value="genderless">Sem Genero</option>
+            <option value="unknown">Desconhecido</option>
+          </select>
+          <!-- select status -->
+          <select name="status" id="status" class="filter">
+            <option value="">Condição</option>
+            <option value="alive">Vivo</option>
+            <option value="dead">Morto</option>
+            <option value="unknown">Desconhecido</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
     <script src="./script.js"></script>
   </body>
 </html>
