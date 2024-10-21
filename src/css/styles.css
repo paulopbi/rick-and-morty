@@ -12,10 +12,18 @@
   --backgound-color: #fcfcfc;
   --pure-white: #fff;
   --accent: #00b0c8;
+  --button-background: #f2f9fe;
   --gray: rgba(0, 0, 0, 0.6);
+
+  --footer-shadow: -2px 0 8px 2px rgba(0, 0, 0, 0.1);
+
   --first-card-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   --secound-card-shadow: 0 3px 4px rgba(0, 0, 0, 0.12);
   --third-card-shadow: 0 3px 4px rgba(0, 0, 0, 0.12);
+
+  --first-button-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  --secound-button-shadow: 0 6px 10px rgba(0, 0, 0, 0.12);
+  --thrid-button-shadow: 0 1px 18px rgba(0, 0, 0, 0.12);
 }
 
 /* general styles */
@@ -111,4 +119,93 @@ body {
 
 .filters-items > input::placeholder {
   color: var(--gray);
+}
+
+/* characters card */
+
+.characters-insert {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 240px);
+  align-items: start;
+  justify-content: center;
+  margin-top: 38px;
+  gap: 24px 20px;
+}
+
+.chars-container {
+  max-width: 240px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: var(--first-card-shadow), var(--secound-card-shadow),
+    var(--third-card-shadow);
+  background-color: #fff;
+}
+
+.chars-container:hover h3 {
+  color: var(--accent);
+}
+
+.char-info {
+  padding: 1em;
+}
+
+.char-info h3 {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  transition: 0.4s;
+}
+
+.char-info hr {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-block: 8px;
+}
+
+.char-status {
+  display: flex;
+  gap: 0.3em;
+  flex-direction: column;
+}
+
+.char-status span {
+  display: block;
+  text-transform: capitalize;
+  color: var(--gray);
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 48px 0;
+}
+
+.button-load-more {
+  display: block;
+  outline: none;
+  border: none;
+  border-radius: 0.4em;
+  text-transform: uppercase;
+  padding: 0.8em 1.2em;
+  cursor: pointer;
+  box-shadow: var(--first-button-shadow), var(--secound-button-shadow),
+    var(--thrid-button-shadow);
+  color: var(--accent);
+  background-color: var(--button-background);
+}
+
+/* footer */
+
+.footer {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  box-shadow: var(--footer-shadow);
+  background-color: var(--pure-white);
 }
