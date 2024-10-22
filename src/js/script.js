@@ -31,7 +31,7 @@ const renderCharacters = (characters) => {
     <!-- card ${index + 1} -->
       <main class="chars-container">
         <div class="char">
-          <img src="${character.image}" alt="${
+          <img class="char__picture" src="${character.image}" alt="${
       character.name
     }" width="240" height="168" />
           <div class="char-info">
@@ -101,6 +101,6 @@ const init = (async () => {
     renderCharacters(initialRender);
     addEventListenersOnFilters();
   } else {
-    throw new Error("Ocorreu algum problema, tente novamente mais tarde!");
+    throw new Error("Ops, something is wrong! Try again later.");
   }
 })();

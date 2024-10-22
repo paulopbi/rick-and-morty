@@ -149,6 +149,14 @@ body {
   padding: 1em;
 }
 
+.char__picture {
+  transition: 0.5s transform;
+}
+
+.char__picture:hover {
+  transform: scale(1.1);
+}
+
 .char-info h3 {
   font-size: 1.4rem;
   text-transform: capitalize;
