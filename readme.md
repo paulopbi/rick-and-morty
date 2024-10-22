@@ -3,16 +3,18 @@
 <br>
 My social media
 <br>
-<a href="https://www.linkedin.com/in/paulopbi/">Linkedin</a> • <a href="https://github.com/paulopbi">Github</a> • <a href="https://www.behance.net/paulopbi">Behance</a> • <a href="https://www.figma.com/community/file/979477099633946456/rick-and-morty-web-responsive">Project Figma</a>
+<a href="https://www.linkedin.com/in/paulopbi/">Linkedin</a> • <a href="https://github.com/paulopbi">Github</a> • <a href="https://www.behance.net/paulopbi">Behance</a> • <a href="https://www.figma.com/community/file/979477099633946456/rick-and-morty-web-responsive">Figma</a> • <a href="https://paulopbi.github.io/rick-and-morty/">Live Demo</a>
 </p>
 
-**Welcome to the Rick and Morty Characters Explorer**, this project was built using **HTML**, **CSS**, and **JavaScript** to explore the vast universe of Rick and Morty characters!
+**Welcome to the Rick and Morty Characters Explorer**, this project was built using **HTML**, **CSS**, and **JavaScript** to explore the vast universe of Rick and Morty!
+
+<img src="./src/assets/cover.png">
 
 ### 🌟 How to Use
 
 Filter characters by their name, species, gender, or status.
 Scroll through the list of characters and hit "Load More" to discover additional characters.
-Enjoy exploring the Rick and Morty universe!
+Enjoy exploring the Rick and Morty universe! See the project [demo here](https://paulopbi.github.io/rick-and-morty/).
 
 ### 🚀 Features
 
