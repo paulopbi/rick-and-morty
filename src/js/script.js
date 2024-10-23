@@ -35,6 +35,11 @@ const getCharacters = async ({ name, species, gender, status, page }) => {
   }
 };
 
+const renderFirstTime = async () => {
+  const char = await getCharacters(defaultFilters);
+  renderCharacters(char);
+};
+
 const renderCharacters = (characters) => {
   characters.forEach((character, index) => {
     insertContainer.innerHTML += `
