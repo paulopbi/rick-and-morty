@@ -17,7 +17,7 @@ My social media
 
 Filter characters by their name, species, gender, or status.
 Scroll through the list of characters and hit "Load More" to discover additional characters.
-Enjoy exploring the Rick and Morty universe! See the project [demo here](https://paulopbi.github.io/rick-and-morty/).
+Enjoy exploring the Rick and Morty universe!
 
 ### 🚀 Features
 
