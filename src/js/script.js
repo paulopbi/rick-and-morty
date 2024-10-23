@@ -1,6 +1,7 @@
-//api url
 const BASE_URL = "https://rickandmortyapi.com/api";
-//filters
+const buttonLoadMore = document.querySelector("#load-more");
+const insertContainer = document.querySelector(".characters-insert");
+const errorDiv = document.querySelector("#error");
 const speciesFilter = document.querySelector("#species");
 const genderFilter = document.querySelector("#gender");
 const statusFilter = document.querySelector("#status");
@@ -13,16 +14,25 @@ const defaultFilters = {
   page: 1,
 };
 
-//button and characters container
-const buttonLoadMore = document.querySelector("#load-more");
-const insertContainer = document.querySelector(".characters-insert");
-
 const getCharacters = async ({ name, species, gender, status, page }) => {
-  const API = await fetch(
-    `${BASE_URL}/character?name=${name}&species=${species}&gender=${gender}&status=${status}&page=${page}`
-  );
-  const characters = await API.json();
-  return characters.results;
+  try {
+    const API = await fetch(
+      `${BASE_URL}/character?name=${name}&species=${species}&gender=${gender}&status=${status}&page=${page}`
+    );
+    if (!API.ok) {
+      throw new Error(
+        "Oops can't find more characters 💔, please try again with another name or filter!"
+      );
+    }
+    const characters = await API.json();
+    errorDiv.style.display = "none";
+    return characters.results;
+  } catch (error) {
+    console.error("Error: " + error);
+    errorDiv.style.display = "block";
+    errorDiv.innerHTML = `<p>${error.message}</p>`;
+    return [];
+  }
 };
 
 const renderCharacters = (characters) => {
@@ -53,7 +63,6 @@ const searchCharactersByStatus = async ({ target }) => {
   defaultFilters.status = target.value;
   insertContainer.innerHTML = "";
   const status = await getCharacters(defaultFilters);
-
   renderCharacters(status);
 };
 
@@ -84,7 +93,7 @@ const loadMoreCharacters = async () => {
   renderCharacters(page);
 };
 
-const addEventListenersOnFilters = () => {
+const addEventListenersInFilters = () => {
   speciesFilter.addEventListener("change", searchCharactersBySpecie);
   genderFilter.addEventListener("change", searchCharactersByGender);
   statusFilter.addEventListener("change", searchCharactersByStatus);
@@ -99,8 +108,11 @@ const init = (async () => {
   if (filtersExist && insertionAndButton) {
     const initialRender = await getCharacters(defaultFilters);
     renderCharacters(initialRender);
-    addEventListenersOnFilters();
+    addEventListenersInFilters();
   } else {
-    throw new Error("Ops, something is wrong! Try again later.");
+    console.error("Can't find the DOM elements");
+    errorDiv.style.display = "block";
+    errorDiv.innerHTML = `<p>😔 We have a little problem with this app, please try again later!</p>`;
   }
+  return;
 })();
