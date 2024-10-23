@@ -236,3 +236,19 @@ body {
   padding: 1.5rem 0.6rem;
   margin: 4rem auto;
 }
+
+/* scrollbar style */
+
+body::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--accent);
+  outline: 1px solid var(--pure-white);
+}
