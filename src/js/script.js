@@ -1,6 +1,6 @@
 const BASE_URL = "https://rickandmortyapi.com/api";
-const buttonLoadMore = document.querySelector("#load-more");
-const insertContainer = document.querySelector(".characters-insert");
+const loadMoreButton = document.querySelector("#load-more");
+const insertCharContainer = document.querySelector("#characters-insertion");
 const errorDiv = document.querySelector("#error");
 const speciesFilter = document.querySelector("#species");
 const genderFilter = document.querySelector("#gender");
@@ -24,8 +24,8 @@ const getCharacters = async ({ name, species, gender, status, page }) => {
         "Oops can't find more characters 💔, please try again with another name or filter!"
       );
     }
-    const characters = await API.json();
     errorDiv.style.display = "none";
+    const characters = await API.json();
     return characters.results;
   } catch (error) {
     console.error("Error: " + error);
@@ -42,7 +42,7 @@ const renderFirstTime = async () => {
 
 const renderCharacters = (characters) => {
   characters.forEach((character, index) => {
-    insertContainer.innerHTML += `
+    insertCharContainer.innerHTML += `
     <!-- card ${index + 1} -->
       <main class="chars-container">
         <div class="char">
@@ -66,28 +66,32 @@ const renderCharacters = (characters) => {
 
 const searchCharactersByStatus = async ({ target }) => {
   defaultFilters.status = target.value;
-  insertContainer.innerHTML = "";
+  defaultFilters.page = 1;
+  insertCharContainer.innerHTML = "";
   const status = await getCharacters(defaultFilters);
   renderCharacters(status);
 };
 
 const searchCharactersByGender = async ({ target }) => {
   defaultFilters.gender = target.value;
-  insertContainer.innerHTML = "";
+  defaultFilters.page = 1;
+  insertCharContainer.innerHTML = "";
   const gender = await getCharacters(defaultFilters);
   renderCharacters(gender);
 };
 
 const searchCharactersBySpecie = async ({ target }) => {
   defaultFilters.species = target.value;
-  insertContainer.innerHTML = "";
+  defaultFilters.page = 1;
+  insertCharContainer.innerHTML = "";
   const specie = await getCharacters(defaultFilters);
   renderCharacters(specie);
 };
 
 const searchCharactersByName = async ({ target }) => {
   defaultFilters.name = target.value;
-  insertContainer.innerHTML = "";
+  defaultFilters.page = 1;
+  insertCharContainer.innerHTML = "";
   const name = await getCharacters(defaultFilters);
   renderCharacters(name);
 };
@@ -95,6 +99,7 @@ const searchCharactersByName = async ({ target }) => {
 const loadMoreCharacters = async () => {
   defaultFilters.page += 1;
   const page = await getCharacters(defaultFilters);
+  insertCharContainer.innerHTML += "";
   renderCharacters(page);
 };
 
@@ -103,16 +108,15 @@ const addEventListenersInFilters = () => {
   genderFilter.addEventListener("change", searchCharactersByGender);
   statusFilter.addEventListener("change", searchCharactersByStatus);
   nameFilter.addEventListener("input", searchCharactersByName);
-  buttonLoadMore.addEventListener("click", loadMoreCharacters);
+  loadMoreButton.addEventListener("click", loadMoreCharacters);
 };
 
 const init = (async () => {
-  const insertionAndButton = insertContainer && buttonLoadMore;
-  const filtersExist = speciesFilter && genderFilter && statusFilter;
+  const sectionAndButton = insertCharContainer && loadMoreButton;
+  const existFilters = speciesFilter && genderFilter && statusFilter;
 
-  if (filtersExist && insertionAndButton) {
-    const initialRender = await getCharacters(defaultFilters);
-    renderCharacters(initialRender);
+  if (existFilters && sectionAndButton) {
+    renderFirstTime();
     addEventListenersInFilters();
   } else {
     console.error("Can't find the DOM elements");
