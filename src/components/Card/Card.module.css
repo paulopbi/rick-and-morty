@@ -16,25 +16,39 @@
   background-color: #fff;
 }
 
+.links {
+  color: #000;
+  transition: all 0.4s;
+}
+
+.links:hover {
+  color: #00505a;
+  opacity: 0.9;
+}
+
 .image {
   overflow: hidden;
   object-fit: cover;
 }
 
 .texts {
-  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
   padding: 1.2rem 1.6rem;
 }
 
 .title {
+  font-size: 2rem;
   font-weight: 500;
   opacity: 0.87;
   margin-bottom: 1rem;
+  line-height: 1.1;
   text-wrap: wrap;
   word-break: break-all;
-  line-height: 1.1;
   text-overflow: ellipsis;
-  max-width: 40ch;
+  text-transform: capitalize;
 }
 
 .status {
