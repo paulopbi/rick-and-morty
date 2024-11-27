@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+  margin-inline: auto;
+}
+
+.content {
+  flex: 1;
+  text-align: center;
+  gap: 2.4rem;
+  font-size: 1.8rem;
+  padding: 1.6rem;
+  max-width: 80ch;
+  word-break: break-all;
+  border-radius: 0.4rem;
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 2px solid #f5c6cb;
+}
+
+.error {
+  max-width: 60ch;
+}
