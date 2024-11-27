@@ -1,0 +1,56 @@
+.section {
+  max-width: 1200px;
+  margin: 2.4rem auto;
+}
+
+.logo {
+  width: 100%;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(4, 240px);
+  align-items: start;
+  justify-content: center;
+  gap: 1.6rem 2.4rem;
+  margin: 1.6rem auto 0px auto;
+}
+
+.input,
+.filter {
+  width: 240px;
+  padding: 1.6rem;
+  border: 1px solid #cfcfcf;
+  border-radius: 0.8rem;
+}
+
+.filter {
+  background-color: transparent;
+  padding: 1.5rem;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 4.8rem auto;
+}
+
+@media screen and (max-width: 1100px) {
+  .filters {
+    grid-template-columns: repeat(2, 240px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo {
+    display: none;
+  }
+
+  .filters {
+    grid-template-columns: repeat(1, 240px);
+  }
+}
