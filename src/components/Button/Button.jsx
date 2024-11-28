@@ -11,7 +11,7 @@ const Button = ({ children, disabled, ...props }) => {
 
 Button.propTypes = {
   children: Proptypes.node,
-  disabled: Proptypes.bool,
+  disabled: Proptypes.oneOfType([Proptypes.bool, Proptypes.string]),
 };
 
 export default Button;
