@@ -1,22 +1,33 @@
+import { Github, Linkedin } from "lucide-react";
+import styles from "./NavBar.module.css";
 import LOGO from "../../assets/logo.png";
-import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <header>
-      <div>
-        <img src={LOGO} alt="Logo" width={50} height={50} />
-      </div>
-      <nav>
-        <ul>
+    <header className={styles.header}>
+      <nav className={styles.container}>
+        <div className={styles.image}>
+          <img src={LOGO} alt="Logo" width={50} height={50} />
+        </div>
+
+        <ul className={styles.list}>
           <li>
-            <Link to="/">Home</Link>
+            <a
+              href="https://www.linkedin.com/in/paulopbi/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Linkedin size={24} />
+            </a>
           </li>
           <li>
-            <Link to="/">Localizations</Link>
-          </li>
-          <li>
-            <Link to="/">Episodes</Link>
+            <a
+              href="https://github.com/paulopbi"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github size={24} />
+            </a>
           </li>
         </ul>
       </nav>
