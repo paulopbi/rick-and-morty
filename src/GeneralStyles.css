@@ -13,9 +13,15 @@ body {
 }
 
 input,
-textarea,
 select {
+  outline: none;
   font-family: inherit;
+  transition: 0.4s;
+}
+
+input:hover,
+select:hover {
+  border: 1px solid #2196f3;
 }
 
 a {
@@ -28,6 +34,12 @@ button {
   cursor: pointer;
   color: inherit;
   font-family: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.4;
 }
 
 ul {

@@ -1,16 +1,17 @@
 import Proptypes from "prop-types";
 import styles from "./Button.module.css";
 
-const Button = ({ children, ...props }) => {
+const Button = ({ children, disabled, ...props }) => {
   return (
-    <button className={styles.button} {...props}>
+    <button className={styles.button} disabled={disabled} {...props}>
       {children}
     </button>
   );
 };
 
 Button.propTypes = {
-  children: Proptypes.elementType,
+  children: Proptypes.node,
+  disabled: Proptypes.bool,
 };
 
 export default Button;
