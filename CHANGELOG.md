@@ -2,6 +2,13 @@
 
 ##### Build System / Dependencies
 
+*  change router dom path to show the right route in github pages (91666438)
+*  change github.io link (29f36841)
+
+#### 1.0.0 (2024-11-28)
+
+##### Build System / Dependencies
+
 *  version 1.0.0 (471cfb6e)
 *  add lucide react icons lib (29d0ac51)
 
