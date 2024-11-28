@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./GeneralStyles.css";
 import Home from "./pages/Home";
 import Character from "./pages/Character";
@@ -8,13 +8,13 @@ import Footer from "./components/Footer/Footer";
 import NotFind from "./pages/NotFind";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <HashRouter>
     <NavBar />
     <Routes>
-      <Route path="/rick-and-morty" element={<Home />} />
-      <Route path="/rick-and-morty/character/:id" element={<Character />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/character/:id" element={<Character />} />
       <Route path="*" element={<NotFind />} />
     </Routes>
     <Footer />
-  </BrowserRouter>
+  </HashRouter>
 );
