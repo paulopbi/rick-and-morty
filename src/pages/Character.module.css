@@ -1,0 +1,128 @@
+.section {
+  width: 100%;
+  min-height: 100vh;
+  margin-block: 2.4rem;
+}
+
+.return {
+  max-width: fit-content;
+  padding: 1rem;
+}
+
+.link {
+  font-family: "Karla", sans-serif;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2.4rem auto;
+  padding-inline: 1.6rem;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.4rem;
+}
+
+.avatar {
+  height: 300px;
+  width: 300px;
+  margin: 1.6rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 5px solid #f2f2f7;
+}
+
+.avatar:hover {
+  border-color: #e6e6ff;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileInfo h1 {
+  font-size: 4.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #081f32;
+}
+
+.charInfos {
+  display: grid;
+  grid-template-columns: repeat(2, 413px);
+  align-items: start;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.charInfoWrapper {
+  width: 100%;
+}
+
+.subTitle {
+  font-size: 2rem;
+  margin-bottom: 3.2rem;
+  color: #8e8e93;
+}
+
+.charInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 1.6rem 0;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+}
+
+.charInfo h3 {
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #081f32;
+}
+
+.charInfo span {
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+  color: #6e798c;
+}
+
+@media screen and (max-width: 1000px) {
+  .charInfos {
+    width: 315px;
+    grid-template-columns: 1fr;
+    margin-inline: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profileInfo h1 {
+    font-size: 3.2rem;
+  }
+
+  .avatar {
+    height: 150px;
+    width: 150px;
+  }
+}

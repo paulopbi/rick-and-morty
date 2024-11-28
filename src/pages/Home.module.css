@@ -1,6 +1,7 @@
 .section {
   max-width: 1200px;
   margin: 2.4rem auto;
+  position: relative;
 }
 
 .logo {
@@ -11,7 +12,7 @@
 
 .filters {
   display: grid;
-  grid-template-columns: repeat(4, 240px);
+  grid-template-columns: repeat(auto-fit, 240px);
   align-items: start;
   justify-content: center;
   gap: 1.6rem 2.4rem;
@@ -32,11 +33,13 @@
 }
 
 .buttonContainer {
+  max-width: 1200px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto 4.8rem auto;
+  justify-content: space-between;
+  padding-inline: 1.6rem;
+  margin: 3.2rem auto;
 }
 
 @media screen and (max-width: 1100px) {

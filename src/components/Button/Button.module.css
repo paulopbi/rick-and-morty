@@ -11,7 +11,7 @@
   cursor: pointer;
   display: inline-flex;
   gap: 0.8rem;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
   justify-content: center;
   line-height: 1.25;
@@ -40,4 +40,15 @@
   background-color: #004370;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
+}
+
+@media screen and (max-width: 800px) {
+  .button {
+    font-size: 1.4rem;
+  }
+
+  .button svg {
+    width: 20px;
+    height: 20px;
+  }
 }
