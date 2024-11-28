@@ -1,18 +1,41 @@
-import { LoadMore } from "../components/Button/Button";
+import { useState } from "react";
+import { BASE_URL } from "../helpers/api";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { motion } from "motion/react";
+import Button from "../components/Button/Button";
+import styles from "./Home.module.css";
+import useFetchCharacters from "../hooks/useFetchCharacters";
 import ALT_LOGO from "../assets/alt_logo.png";
 import Card from "../components/Card/Card";
-import useFetch from "../hooks/useFetch";
-import styles from "./Home.module.css";
+import Error from "../helpers/Error/Error";
+import Loading from "../helpers/Loading/Loading";
 
 const Home = () => {
-  const { data, loading } = useFetch(
-    "https://rickandmortyapi.com/api/character"
+  const [inputName, setInputName] = useState("");
+  const [species, setSpecies] = useState("");
+  const [gender, setGender] = useState("");
+  const [status, setStatus] = useState("");
+  const [pages, setPages] = useState(1);
+
+  const handleName = (e) => {
+    setInputName(e.target.value);
+    setPages(1);
+  };
+
+  const { data, loading, error } = useFetchCharacters(
+    `${BASE_URL}/character/?page=${pages}&name=${inputName}&species=${species}&gender=${gender}&status=${status}`
   );
 
   return (
     <>
-      {loading && <p>Carregando...</p>}
-      <section className={styles.section}>
+      {loading && <Loading />}
+
+      <motion.section
+        initial={{ translateX: "-100px", scale: 0.5, opacity: 0 }}
+        animate={{ translateX: "0px", scale: 1, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className={styles.section}
+      >
         <div className={styles.logo}>
           <img src={ALT_LOGO} alt="Logo" width={520} height={167} />
         </div>
@@ -21,12 +44,19 @@ const Home = () => {
           <input
             type="text"
             id="name"
-            placeholder="Search by name..."
+            placeholder="Filter by name..."
             className={styles.input}
+            value={inputName}
+            onChange={handleName}
           />
 
-          {/* species */}
-          <select name="species" id="species" className={styles.filter}>
+          {/* species option*/}
+          <select
+            name="species"
+            id="species"
+            className={styles.filter}
+            onChange={(e) => setSpecies(e.target.value)}
+          >
             <option value="">Species</option>
             <option value="animal">Animal</option>
             <option value="alien">Alien</option>
@@ -39,8 +69,13 @@ const Home = () => {
             <option value="robot">Robot</option>
           </select>
 
-          {/* gender */}
-          <select name="gender" id="gender" className={styles.filter}>
+          {/* gender option*/}
+          <select
+            name="gender"
+            id="gender"
+            className={styles.filter}
+            onChange={(e) => setGender(e.target.value)}
+          >
             <option value="">Gender</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
@@ -48,22 +83,45 @@ const Home = () => {
             <option value="unknown">Unknown</option>
           </select>
 
-          {/* status */}
-          <select name="status" id="status" className={styles.filter}>
+          {/* status option*/}
+          <select
+            name="status"
+            id="status"
+            className={styles.filter}
+            onChange={(e) => setStatus(e.target.value)}
+          >
             <option value="">Status</option>
             <option value="alive">Alive</option>
             <option value="dead">Dead</option>
             <option value="unknown">Unknown</option>
           </select>
         </div>
-      </section>
+      </motion.section>
 
-      <main>
-        <Card character={data} />
-      </main>
+      {/* cards area */}
+      <motion.main
+        initial={{ translateX: "-100px", opacity: 0 }}
+        animate={{ translateX: "0px", opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
+        {error ? <Error error={error} /> : <Card data={data} />}
+      </motion.main>
 
+      {/* buttons area */}
       <div className={styles.buttonContainer}>
-        <LoadMore />
+        <Button
+          onClick={() => setPages((prev) => (prev > 1 ? prev - 1 : 1))}
+          disabled={pages === 1 || error}
+        >
+          <ArrowLeft size={24} /> Previous
+        </Button>
+        <Button
+          onClick={() => setPages((prev) => (prev < 42 ? prev + 1 : 42))}
+          disabled={pages === 42 || error}
+        >
+          Next
+          <ArrowRight size={24} />
+        </Button>
       </div>
     </>
   );
