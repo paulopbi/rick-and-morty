@@ -1,13 +1,16 @@
 {
+  "homepage": "https://github.com/paulopbi/rick-and-morty",
   "name": "rick_and_morty",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "lucide-react": "^0.462.0",
@@ -26,6 +29,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "generate-changelog": "^1.8.0",
+    "gh-pages": "^6.2.0",
     "globals": "^15.12.0",
     "vite": "^6.0.0"
   }
