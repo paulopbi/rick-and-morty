@@ -9,6 +9,7 @@ import ALT_LOGO from "../assets/alt_logo.png";
 import Card from "../components/Card/Card";
 import Error from "../helpers/Error/Error";
 import Loading from "../helpers/Loading/Loading";
+import Head from "../helpers/Head";
 
 const Home = () => {
   const [inputName, setInputName] = useState("");
@@ -28,6 +29,8 @@ const Home = () => {
 
   return (
     <>
+      <Head title="Home" description="Rick and Morty characters wiki" />
+
       {loading && <Loading />}
 
       <motion.section
