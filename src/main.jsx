@@ -11,7 +11,7 @@ createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <NavBar />
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/rick-and-morty" element={<Home />} />
       <Route path="character/:id" element={<Character />} />
       <Route path="*" element={<NotFind />} />
     </Routes>
