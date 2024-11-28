@@ -50,3 +50,13 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.link {
+  font-family: "Karla", sans-serif;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}

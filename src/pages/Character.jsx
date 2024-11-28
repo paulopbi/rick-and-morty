@@ -29,7 +29,7 @@ const Character = () => {
             whileHover={{ marginLeft: "-16px", opacity: 0.8 }}
             className={styles.return}
           >
-            <Link to="/" className={styles.link}>
+            <Link to="/" className="link">
               <ArrowLeft size={24} />
               Go back
             </Link>
