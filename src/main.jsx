@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Character from "./pages/Character";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import NotFind from "./pages/NotFind";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -12,6 +13,7 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="character/:id" element={<Character />} />
+      <Route path="*" element={<NotFind />} />
     </Routes>
     <Footer />
   </BrowserRouter>
