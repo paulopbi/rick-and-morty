@@ -12,7 +12,7 @@ createRoot(document.getElementById("root")).render(
     <NavBar />
     <Routes>
       <Route path="/rick-and-morty" element={<Home />} />
-      <Route path="character/:id" element={<Character />} />
+      <Route path="/rick-and-morty/character/:id" element={<Character />} />
       <Route path="*" element={<NotFind />} />
     </Routes>
     <Footer />
