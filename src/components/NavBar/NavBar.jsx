@@ -1,4 +1,5 @@
 import { Github, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import LOGO from "../../assets/logo.png";
 
@@ -7,7 +8,9 @@ const NavBar = () => {
     <header className={styles.header}>
       <nav className={styles.container}>
         <div className={styles.image}>
-          <img src={LOGO} alt="Logo" width={50} height={50} />
+          <Link to="/">
+            <img src={LOGO} alt="Logo" width={50} height={50} />
+          </Link>
         </div>
 
         <ul className={styles.list}>
