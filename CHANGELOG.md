@@ -1,3 +1,16 @@
+#### 1.0.0 (2024-11-29)
+
+##### Build System / Dependencies
+
+*  using hashrouter (35dccf8b)
+*  change router dom path to show the right route in github pages (91666438)
+*  change github.io link (29f36841)
+
+##### Documentation Changes
+
+*  change router dom path (31b8eb49)
+*  change log update (ed47b051)
+
 #### 1.0.0 (2024-11-28)
 
 ##### Build System / Dependencies
